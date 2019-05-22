@@ -1,0 +1,18 @@
+Layout
+- Homepage
+National Park photo, summary (aka Capital One submission for summit etc)
+- Menu bar on top
+Left: Logo, Right: Find a Park (after hovering: By State, By Designation), Search
+- Park card in search results
+Name of Park, location, photo, summary
+- Individual Park page
+Home: Name, location, photo, summary; Cards: visitor centers, campgrounds, social media (optional), map (optional), weather (optional)
+Menu bar: Info (aka home), alerts, articles, events, news releases, lesson plans
+
+
+Bonus Features
+- NPS Symbol Library (?) 
+- Google Maps API
+- Social Media (Instagram API)
+- Weather Channel API
+
