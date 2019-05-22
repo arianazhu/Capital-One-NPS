@@ -1,2 +1,2 @@
 # Capital-One-NPS
-MindSumo challenge for Capital One SWE Summit 2019
+[MindSumo challenge](https://www.mindsumo.com/contests/national-park-api) submission for the Capital One 2019 SWE Summit. 
