@@ -12,12 +12,6 @@
 	</head>
 
 	<body>
-		<div class="jumbotron jumbotron-fluid bg-info" style="background: #aaa;">
-			<div class="container">
-				<h1>National Park Service Information Kiosk</h1>
-				<p>Created by Ariana Zhu for Capital One 2019 SWE Summit.</p>
-			</div>
-		</div>
 
 		<!-- Other title format -->
 		<!--
@@ -38,12 +32,15 @@
 		</div> -->
 
 		<!-- Nav bar -->
-		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<nav class="navbar navbar-expand-md navbar-dark bg-info">
 		  <a class="navbar-brand" href="#">
 				<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/US-NationalParkService-ShadedLogo.svg/2000px-US-NationalParkService-ShadedLogo.svg.png" width="30" height="30" alt="">
+				NPS Kiosk
 			</a>
+
+			<!-- Three line collapse button -->
 		  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-		    <span class="navbar-toggler-icon"></span>
+				<span class="navbar-toggler-icon"></span>
 		  </button>
 
 		  <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -74,11 +71,104 @@
 		      </li>v-->
 		    </ul>
 		    <form class="form-inline my-2 my-lg-0">
-		      <input class="form-control mr-sm-2" type="search" placeholder="Search by name/keyword" aria-label="Search">
-		      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search Park</button>
+		      <input class="form-control mr-sm-2" type="search" placeholder="Search park name/keyword" aria-label="Search">
+
+					<span data-toggle="tooltip" title="Search" class="text-info" data-placement="bottom">
+						<button class="btn btn-outline-success my-2 my-sm-0" type="submit" style="background: #fff;">
+							<img src="https://images.vexels.com/media/users/3/132068/isolated/preview/f9bb81e576c1a361c61a8c08945b2c48-search-icon-by-vexels.png" width="17" height="17"/>
+						</button>
+					</span>
 		    </form>
 		  </div>
 		</nav>
+
+		<div class="jumbotron jumbotron-fluid bg-info text-white text-center" style="background: #aaa;">
+			<div class="container">
+				<h1 class="display-4">National Park Service Information Kiosk</h1>
+				<p class="lead">Created by Ariana Zhu for Capital One 2019 SWE Summit.</p>
+			</div>
+		</div>
+
+		<div class="container text-muted">
+			<!-- cards -->
+			<div class="row">
+				<div class="col-md-6 col-lg-3">
+					<div class="card">
+						<img src="https://www.nps.gov/common/uploads/grid_builder/deva/crop16_9/9B65A85A-1DD8-B71B-0BDF4BF50595F57F.jpg?width=950&quality=90&mode=crop" class="card-img-top img-fluid"/>
+						<div class="card-body">
+							<h3 class="card-title">Death Valley</h3>
+							<p>However, as a project get bigger, it becomes overwhelming to keep all the code in one file. Python projects use packages to organize code into multiple modules that can be imported where needed, and the tutorial will do this as well.</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-6 col-lg-3">
+					<div class="card">
+						<img src="https://www.nps.gov/common/uploads/grid_builder/deva/crop16_9/9B65A85A-1DD8-B71B-0BDF4BF50595F57F.jpg?width=950&quality=90&mode=crop" class="card-img-top img-fluid"/>
+						<div class="card-body">
+							<h3 class="card-title">Death Valley</h3>
+							<p>However, as a project get bigger, it becomes overwhelming to keep all the code in one file. Python projects use packages to organize code into multiple modules that can be imported where needed, and the tutorial will do this as well.</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-6 col-lg-3">
+					<div class="card">
+						<img src="https://www.nps.gov/common/uploads/grid_builder/deva/crop16_9/9B65A85A-1DD8-B71B-0BDF4BF50595F57F.jpg?width=950&quality=90&mode=crop" class="card-img-top img-fluid"/>
+						<div class="card-body">
+							<h3 class="card-title">Death Valley</h3>
+							<p>However, as a project get bigger, it becomes overwhelming to keep all the code in one file. Python projects use packages to organize code into multiple modules that can be imported where needed, and the tutorial will do this as well.</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-6 col-lg-3">
+					<div class="card">
+						<img src="https://www.nps.gov/common/uploads/grid_builder/deva/crop16_9/9B65A85A-1DD8-B71B-0BDF4BF50595F57F.jpg?width=950&quality=90&mode=crop" class="card-img-top img-fluid"/>
+						<div class="card-body">
+							<h3 class="card-title">Death Valley</h3>
+							<p>However, as a project get bigger, it becomes overwhelming to keep all the code in one file. Python projects use packages to organize code into multiple modules that can be imported where needed, and the tutorial will do this as well.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<h2 class="display-4 text-center py-5 my-4">Death Valley, California</h2>
+
+			<nav class="nav justify-content-center nav-pills flex-column flex-md-row">
+				<a class="nav-link active" href="#info" data-toggle="tab">Info</a>
+				<a class="nav-link" href="#alerts" data-toggle="tab">Alerts</a>
+				<a class="nav-link" href="#articles" data-toggle="tab">Articles</a>
+				<a class="nav-link" href="#events" data-toggle="tab">Events</a>
+				<a class="nav-link" href="#news" data-toggle="tab">News</a>
+				<a class="nav-link" href="#lesson" data-toggle="tab">Lesson Plans</a>
+			</nav>
+
+			<div class="tab-content py-5">
+				<div class="tab-pane active" id="info">
+					<h3>Info</h3>
+					<p>However, as a project get bigger, it becomes overwhelming to keep all the code in one file. Python projects use packages to organize code into multiple modules that can be imported where needed, and the tutorial will do this as well.</p>
+				</div>
+				<div class="tab-pane" id="alerts">
+					<h3>Alerts</h3>
+					<p>However, as a project get bigger, it becomes overwhelming to keep all the code in one file. Python projects use packages to organize code into multiple modules that can be imported where needed, and the tutorial will do this as well.</p>
+				</div>
+				<div class="tab-pane" id="articles">
+					<h3>Articles</h3>
+					<p>However, as a project get bigger, it becomes overwhelming to keep all the code in one file. Python projects use packages to organize code into multiple modules that can be imported where needed, and the tutorial will do this as well.</p>
+				</div>
+				<div class="tab-pane" id="events">
+					<h3>Events</h3>
+					<p>However, as a project get bigger, it becomes overwhelming to keep all the code in one file. Python projects use packages to organize code into multiple modules that can be imported where needed, and the tutorial will do this as well.</p>
+				</div>
+				<div class="tab-pane" id="news">
+					<h3>News</h3>
+					<p>However, as a project get bigger, it becomes overwhelming to keep all the code in one file. Python projects use packages to organize code into multiple modules that can be imported where needed, and the tutorial will do this as well.</p>
+				</div>
+				<div class="tab-pane" id="lesson">
+					<h3>Lesson Plans</h3>
+					<p>However, as a project get bigger, it becomes overwhelming to keep all the code in one file. Python projects use packages to organize code into multiple modules that can be imported where needed, and the tutorial will do this as well.</p>
+				</div>
+			</div>
+
+		</div>
 
 		<div class="container">
 			<!-- Different column formats -->
@@ -118,5 +208,10 @@
 		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+		<script>
+			S(function () {
+				S('[data-toggle="tooltip"]').tooltip();
+			});
+		</script>
 	</body>
 </html>
