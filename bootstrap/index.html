@@ -12,32 +12,76 @@
 	</head>
 
 	<body>
-		<div class="jumbotron jumbotron-fluid" style="background: #aaa;">
+		<div class="jumbotron jumbotron-fluid bg-info" style="background: #aaa;">
 			<div class="container">
-				<h1>Jumbotron!</h1>
-				<p>(were they high?)</p>
+				<h1>National Park Service Information Kiosk</h1>
+				<p>Created by Ariana Zhu for Capital One 2019 SWE Summit.</p>
 			</div>
 		</div>
 
+		<!-- Other title format -->
+		<!--
 		<h1>National Park Service information Kiosk</h1>
 		<h2>Created by Ariana Zhu for Capital One 2019 SWE Summit.</h2>
 		<p>Lorem ipsum dolor sit amet, consul labore qui an, qui id alia mnesarchum, ut sale meliore delicatissimi usu. Cu legendos dissentiet vim. Amet virtute splendide te per, te eos iudico fabellas. Audire sensibus efficiendi ius no, officiis pertinacia philosophia mei eu. Volumus fastidii ponderum cum eu, ferri epicuri constituam ex nec. Clita populo placerat ius id, mei no nostrud mediocritatem, sonet prodesset qui id. Est te primis placerat, nec te nonumy platonem.</p>
+		-->
 
-		<form>
-			<label>Search</label>
-			<input type="text" placeholder="Enter name or keyword" />
-			<input type="submit" value="Search" />
-		</form>
-
-		<!--<div class="container" style="background: skyblue">
-			<h1>Fixed Container</h1>
-		</div>-->k
-
-		<div class="container-fluid" style="background: yellow">
+		<!-- Fluid Container w/ search -->
+		<!--
+		<div class="container-fluid" style="background: lightblue">
 			<h1>Fluid Container</h1>
-		</div>
+			<form>
+				<label>Search</label>
+				<input type="text" placeholder="Enter name or keyword" />
+				<input type="submit" value="Search" />
+			</form>
+		</div> -->
+
+		<!-- Nav bar -->
+		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		  <a class="navbar-brand" href="#">
+				<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/US-NationalParkService-ShadedLogo.svg/2000px-US-NationalParkService-ShadedLogo.svg.png" width="30" height="30" alt="">
+			</a>
+		  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+		    <span class="navbar-toggler-icon"></span>
+		  </button>
+
+		  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+		    <ul class="navbar-nav mr-auto">
+		      <li class="nav-item active">
+		        <a class="nav-link" href="#">Home<span class="sr-only">(current)</span></a>
+		      </li>
+					<!-- Link -->
+					<!--
+		      <li class="nav-item">
+		        <a class="nav-link" href="#">Link</a>
+		      </li> -->
+		      <li class="nav-item dropdown">
+		        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		          Find a Park
+		        </a>
+		        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		          <a class="dropdown-item" href="#">By State</a>
+		          <a class="dropdown-item" href="#">By Designation</a>
+		          <div class="dropdown-divider"></div>
+		          <a class="dropdown-item" href="#">Search by Name or Keyword</a>
+		        </div>
+		      </li>
+					<!-- Disabled -->
+					<!--
+		      <li class="nav-item">
+		        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+		      </li>v-->
+		    </ul>
+		    <form class="form-inline my-2 my-lg-0">
+		      <input class="form-control mr-sm-2" type="search" placeholder="Search by name/keyword" aria-label="Search">
+		      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search Park</button>
+		    </form>
+		  </div>
+		</nav>
 
 		<div class="container">
+			<!-- Different column formats -->
 			<!--<div class="row" style="background: lightblue">
 				<div class="col-sm-6">column</div>
 				<div class="col-sm-6">column</div>
