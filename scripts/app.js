@@ -1,5 +1,21 @@
 var fs = require('fs');
 
+var parkInfo = fs.readFileSync('../textfiles/parkInfo.txt', 'utf8');
+//fs.writeFileSync('new.txt', parkInfo);
+
+// // Asynchronous??
+// fs.readFile('../textfiles/parkInfo.txt', 'utf8', function(err, data){
+//   fs.writeFile('new.txt', data, (err) => {
+//     if (err) throw err;
+//    });
+//  });
+
+// // Delete file
+// fs.unlink('new.txt');
+
+// // Make directory (delete is rm)
+// fs.mkdirSync('directoryname');
+
 // // var stuff = require('./stuff');
 // //
 // // console.log(stuff.counter([1, 2, 3]));
