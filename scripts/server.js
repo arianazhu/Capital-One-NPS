@@ -8,17 +8,48 @@ var fs = require('fs');
 
 var server = http.createServer(function(req, res){
   console.log('request was made: ' + req.url);
-  res.writeHead(200, {'Content-Type': 'text/html'}); // text/plain for plaintext
+  if (req.url === '/home' || req.url === '/') {
+    res.writeHead(200, {'Content-Type': 'text/html'});
+    fs.createReadStream('../bootstrap/index.html').pipe(res);
+  } else if (req.url === '/find-by-state') {
+    res.writeHead(200, {'Content-Type': 'text/html'});
+    fs.createReadStream('../bootstrap/state.html').pipe(res);
+  } else if (req.url === '/find-by-designation') {
+    res.writeHead(200, {'Content-Type': 'text/html'});
+    fs.createReadStream('../bootstrap/designation.html').pipe(res);
+  } else if (req.url === '/search-park') {
+    res.writeHead(200, {'Content-Type': 'text/html'});
+    fs.createReadStream('../bootstrap/search.html').pipe(res);
+  } else if (req.url === '/api/ninjas') {
+    var ninjas = [{name: 'ry', age: 29}, {name: 'yo', age: 15}];
+    res.writeHead(200, {'Content-Type': 'application/json'});
+    res.end(JSON.stringify(ninjas));
+  } else {
+    res.writeHead(200, {'Content-Type': 'text/html'});
+    fs.createReadStream('../bootstrap/404.html').pipe(res);
+  }
 
-  var myReadStream = fs.createReadStream('../bootstrap/index.html', 'utf8');
-  myReadStream.pipe(res);
+  // // Content-Type: 'text/html', text/plain, application/json
+  // res.writeHead(200, {'Content-Type': 'application/json'});
 
-  // // Send parkInfo.txt to the client
+  // // Serving JSON data
+  // var myObj = {
+  //   name: 'Ryu',
+  //   job: 'Ninja',
+  //   age: 29
+  // };
+  // res.end(JSON.stringify(myObj));
+
+  // // Serving HTML data
+  // var myReadStream = fs.createReadStream('../bootstrap/index.html', 'utf8');
+  // myReadStream.pipe(res);
+
+  // // Serving plain text data
   // var myReadStream = fs.createReadStream('../textfiles/parkInfo.txt', 'utf8');
   // myReadStream.pipe(res);
 
   // // Same as myReadStream.pipe(res) except with 'Hello' literal
-  // res.end('Hello');
+  // res.end('Hello'); //res.end takes in a string or buffer
 });
 
 server.listen(3000, '127.0.0.1'); //127.0.0.1 is ip address of local host
