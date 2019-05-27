@@ -18,18 +18,44 @@
         <div class="col py-3 my-3">
           <h2 class="display-4">Find a park by state</h2>
 
-          <!-- Dropdown search -->
-          <div class="input-group">
-            <select class="custom-select" id="inputGroupSelect04">
+          <!-- Dropdown search pretty-->
+          <!-- <div class="input-group">
+            <select class="custom-select" id="selectState" method="POST" action="/find-by-state"> // inputGroupSelect04
               <option selected>Choose a state...</option>
-              <option value="1">One</option>
-              <option value="2">Two</option>
-              <option value="3">Three</option>
+              <option value="<%= qs.state %>">az</option>
+              <option value="<%= qs.state %>">ca</option>
+              <option value="<%= qs.state %>">dc</option>
             </select>
             <div class="input-group-append">
-              <button class="btn btn-outline-secondary" type="button">Search</button>
+              <button class="btn btn-outline-secondary" type="submit">Search</button>
             </div>
-          </div>
+					</div> -->
+
+					<!-- Dropdown search functional -->
+					<div class="input-group">
+						<form id="selectState" method="POST" action="/find-by-state">
+							<input type="text" name="state" list="stateNames">
+								<datalist id="stateNames">
+								  <option value="AZ">
+								  <option value="CA">
+								</datalist>
+							</input>
+							<!-- <input type="submit" value="Search" /> -->
+							<button class="btn btn-outline-secondary" type="submit">Search</button>
+						</form>
+					</div>
+
+
+					<!-- form version of dropdown -->
+					<!-- <form action="/find-by-state" method="POST">
+						<select class="custom-select" id="selectState"> // inputGroupSelect04
+							<option selected disabled>Choose a state...</option>
+							<option value="1">One</option>
+							<option value="2">Two</option>
+							<option value="3">Three</option>
+						</select>
+						<input type='submit' value='Search' />
+					</form> -->
 
         </div>
       </div>
@@ -43,56 +69,6 @@
 
 		</div>
 
-		<div class="container text-muted">
-			<!-- cards -->
-			<div class="row">
-				<div class="col-md-6 col-lg-3">
-					<div class="card">
-						<img src="https://www.nps.gov/common/uploads/grid_builder/deva/crop16_9/9B65A85A-1DD8-B71B-0BDF4BF50595F57F.jpg?width=950&quality=90&mode=crop" class="card-img-top img-fluid"/>
-						<div class="card-body">
-							<h3 class="card-title">Death Valley</h3>
-							<p>However, as a project get bigger, it becomes overwhelming to keep all the code in one file. Python projects use packages to organize code into multiple modules that can be imported where needed, and the tutorial will do this as well.</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-6 col-lg-3">
-					<div class="card">
-						<img src="https://www.nps.gov/common/uploads/grid_builder/deva/crop16_9/9B65A85A-1DD8-B71B-0BDF4BF50595F57F.jpg?width=950&quality=90&mode=crop" class="card-img-top img-fluid"/>
-						<div class="card-body">
-							<h3 class="card-title">Death Valley</h3>
-							<p>However, as a project get bigger, it becomes overwhelming to keep all the code in one file. Python projects use packages to organize code into multiple modules that can be imported where needed, and the tutorial will do this as well.</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-6 col-lg-3">
-					<div class="card">
-						<img src="https://www.nps.gov/common/uploads/grid_builder/deva/crop16_9/9B65A85A-1DD8-B71B-0BDF4BF50595F57F.jpg?width=950&quality=90&mode=crop" class="card-img-top img-fluid"/>
-						<div class="card-body">
-							<h3 class="card-title">Death Valley</h3>
-							<p>However, as a project get bigger, it becomes overwhelming to keep all the code in one file. Python projects use packages to organize code into multiple modules that can be imported where needed, and the tutorial will do this as well.</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-6 col-lg-3">
-					<div class="card">
-						<img src="https://www.nps.gov/common/uploads/grid_builder/deva/crop16_9/9B65A85A-1DD8-B71B-0BDF4BF50595F57F.jpg?width=950&quality=90&mode=crop" class="card-img-top img-fluid"/>
-						<div class="card-body">
-							<h3 class="card-title">Death Valley</h3>
-							<p>However, as a project get bigger, it becomes overwhelming to keep all the code in one file. Python projects use packages to organize code into multiple modules that can be imported where needed, and the tutorial will do this as well.</p>
-						</div>
-					</div>
-				</div>
-			</div>
-
-		</div>
-
-    <div class="container py-5">
-      <div class="row justify-content-center">
-        <a href="#top">
-          <button type="button" class="btn btn-outline-dark">Back to top</button>
-        </a>
-      </div>
-    </div>
 
 		<!-- JQuery, Tether, Bootstrap JS -->
 		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

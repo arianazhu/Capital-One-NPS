@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>NPS Kiosk: Find by State</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<!-- Bootstrap CSS -->
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	</head>
+
+	<body>
+    <div id="top" />
+
+		<% include partials/nav.ejs %>
+
+    <div class="container">
+      <div class="row">
+        <div class="col py-3 my-3">
+          <h2 class="display-4">Find a park by state: <%= data.state %></h2>
+
+					<!-- Dropdown search functional -->
+					<div class="input-group">
+						<form id="selectState" method="POST" action="/find-by-state">
+							<input type="text" name="state" list="stateNames">
+								<datalist id="stateNames">
+								  <option value="AZ">
+								  <option value="CA">
+								</datalist>
+							<!-- <input type="submit" value="Search" /> -->
+							<button class="btn btn-outline-secondary" type="submit">Search</button>
+						</form>
+					</div>
+
+        </div>
+      </div>
+
+		</div>
+
+		<div class="container text-muted">
+			<!-- cards -->
+			<div class="row">
+				<div class="col-md-6 col-lg-3">
+					<div class="card">
+						<img src="https://www.nps.gov/common/uploads/grid_builder/deva/crop16_9/9B65A85A-1DD8-B71B-0BDF4BF50595F57F.jpg?width=950&quality=90&mode=crop" class="card-img-top img-fluid"/>
+						<div class="card-body">
+							<h3 class="card-title">Death Valley</h3>
+							<p>However, as a project get bigger, it becomes overwhelming to keep all the code in one file. Python projects use packages to organize code into multiple modules that can be imported where needed, and the tutorial will do this as well.</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-6 col-lg-3">
+					<div class="card">
+						<img src="https://www.nps.gov/common/uploads/grid_builder/deva/crop16_9/9B65A85A-1DD8-B71B-0BDF4BF50595F57F.jpg?width=950&quality=90&mode=crop" class="card-img-top img-fluid"/>
+						<div class="card-body">
+							<h3 class="card-title">Death Valley</h3>
+							<p>However, as a project get bigger, it becomes overwhelming to keep all the code in one file. Python projects use packages to organize code into multiple modules that can be imported where needed, and the tutorial will do this as well.</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-6 col-lg-3">
+					<div class="card">
+						<img src="https://www.nps.gov/common/uploads/grid_builder/deva/crop16_9/9B65A85A-1DD8-B71B-0BDF4BF50595F57F.jpg?width=950&quality=90&mode=crop" class="card-img-top img-fluid"/>
+						<div class="card-body">
+							<h3 class="card-title">Death Valley</h3>
+							<p>However, as a project get bigger, it becomes overwhelming to keep all the code in one file. Python projects use packages to organize code into multiple modules that can be imported where needed, and the tutorial will do this as well.</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-6 col-lg-3">
+					<div class="card">
+						<img src="https://www.nps.gov/common/uploads/grid_builder/deva/crop16_9/9B65A85A-1DD8-B71B-0BDF4BF50595F57F.jpg?width=950&quality=90&mode=crop" class="card-img-top img-fluid"/>
+						<div class="card-body">
+							<h3 class="card-title">Death Valley</h3>
+							<p>However, as a project get bigger, it becomes overwhelming to keep all the code in one file. Python projects use packages to organize code into multiple modules that can be imported where needed, and the tutorial will do this as well.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+    <div class="container py-5">
+      <div class="row justify-content-center">
+        <a href="#top">
+          <button type="button" class="btn btn-outline-dark">Back to top</button>
+        </a>
+      </div>
+    </div>
+
+		<!-- JQuery, Tether, Bootstrap JS -->
+		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+		<script>
+			S(function () {
+				S('[data-toggle="tooltip"]').tooltip();
+			});
+		</script>
+	</body>
+</html>

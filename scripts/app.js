@@ -1,10 +1,14 @@
 var express = require('express');
-var app = express();
 var path = require('path');
+var bodyParser = require('body-parser');
+var app = express();
+
+// from bodyParser
+var urlencodedParser = bodyParser.urlencoded({ extended: false});
 
 app.set('view engine', 'ejs');
 
-// Middleware for static files
+// Middleware for static files, pass in path to folder in express.static()
 app.use('/textfiles', express.static('textfiles'));
 
 // sendFile for HTML
@@ -17,7 +21,13 @@ app.get('/', function(req, res) {
 });
 
 app.get('/find-by-state', function(req, res) {
-  res.render('state');
+  console.log('error');
+  res.render('state', {qs: req.query});
+});
+
+app.post('/find-by-state', urlencodedParser, function(req, res) {
+  console.log(req.body);
+  res.render('state-success', {data: req.body});
 });
 
 app.get('/find-by-designation', function(req, res) {
@@ -25,6 +35,10 @@ app.get('/find-by-designation', function(req, res) {
 });
 
 app.get('/search', function(req, res) {
+  res.render('search');
+});
+
+app.post('/search', urlencodedParser, function(req, res) {
   res.render('search');
 });
 
