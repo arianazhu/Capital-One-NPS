@@ -4,25 +4,37 @@ var path = require('path');
 
 app.set('view engine', 'ejs');
 
-app.get('/', function(req, res) {
-  res.sendFile(path.join(__dirname + '/../bootstrap/index.html'));
-});
+// Middleware for static files
+app.use('/textfiles', express.static('textfiles'));
 
-app.get('/home', function(req, res) {
-  res.sendFile(path.join(__dirname + '/../bootstrap/index.html'));
+// sendFile for HTML
+// app.get('/', function(req, res) {
+//   res.sendFile(path.join(__dirname + '/../bootstrap/index.html'));
+// });
+
+app.get('/', function(req, res) {
+  res.render('index');
 });
 
 app.get('/find-by-state', function(req, res) {
-  res.sendFile(path.join(__dirname + '/../bootstrap/state.html'));
+  res.render('state');
 });
 
-app.get('/find-by-state/:state', function(req, res) {
-  // if statement for state to assign various values to stateData
-  var stateData = {age: 13, job: 'ninja'};
-  res.render('state', {stateName: req.params.state, stateData: stateData});
-  // ^access in state.ejs 'stateData.age'
-  // <%= stateName %>
+app.get('/find-by-designation', function(req, res) {
+  res.render('designation');
 });
+
+app.get('/search', function(req, res) {
+  res.render('search');
+});
+
+// app.get('/state.html/:state', function(req, res) {
+//   // if statement for state to assign various values to stateData
+//   var stateData = {age: 13, job: 'ninja'};
+//   res.render('state', {stateName: req.params.state, stateData: stateData});
+//   // ^access in state.ejs 'stateData.age'
+//   // <%= stateName %>
+// });
 
 app.listen(3000);
 
