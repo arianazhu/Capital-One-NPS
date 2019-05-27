@@ -8,16 +8,16 @@ var fs = require('fs');
 
 var server = http.createServer(function(req, res){
   console.log('request was made: ' + req.url);
-  if (req.url === '/home' || req.url === '/') {
+  if (req.url === '/index.html' || req.url === '/') {
     res.writeHead(200, {'Content-Type': 'text/html'});
     fs.createReadStream('../bootstrap/index.html').pipe(res);
-  } else if (req.url === '/find-by-state') {
+  } else if (req.url === '/state.html') {
     res.writeHead(200, {'Content-Type': 'text/html'});
     fs.createReadStream('../bootstrap/state.html').pipe(res);
-  } else if (req.url === '/find-by-designation') {
+  } else if (req.url === '/designation.html') {
     res.writeHead(200, {'Content-Type': 'text/html'});
     fs.createReadStream('../bootstrap/designation.html').pipe(res);
-  } else if (req.url === '/search-park') {
+  } else if (req.url === '/search.html') {
     res.writeHead(200, {'Content-Type': 'text/html'});
     fs.createReadStream('../bootstrap/search.html').pipe(res);
   } else if (req.url === '/api/ninjas') {

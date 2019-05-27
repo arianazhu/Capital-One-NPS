@@ -1,6 +1,35 @@
-var fs = require('fs');
+var express = require('express');
+var app = express();
+var path = require('path');
 
-var parkInfo = fs.readFileSync('../textfiles/parkInfo.txt', 'utf8');
+app.set('view engine', 'ejs');
+
+app.get('/', function(req, res) {
+  res.sendFile(path.join(__dirname + '/../bootstrap/index.html'));
+});
+
+app.get('/home', function(req, res) {
+  res.sendFile(path.join(__dirname + '/../bootstrap/index.html'));
+});
+
+app.get('/find-by-state', function(req, res) {
+  res.sendFile(path.join(__dirname + '/../bootstrap/state.html'));
+});
+
+app.get('/find-by-state/:state', function(req, res) {
+  // if statement for state to assign various values to stateData
+  var stateData = {age: 13, job: 'ninja'};
+  res.render('state', {stateName: req.params.state, stateData: stateData});
+  // ^access in state.ejs 'stateData.age'
+  // <%= stateName %>
+});
+
+app.listen(3000);
+
+// // Read/write a file
+// var fs = require('fs');
+//
+// var parkInfo = fs.readFileSync('../textfiles/parkInfo.txt', 'utf8');
 //fs.writeFileSync('new.txt', parkInfo);
 
 // // Asynchronous??

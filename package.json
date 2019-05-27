@@ -1,0 +1,32 @@
+{
+  "name": "capital-one-nps",
+  "version": "1.0.0",
+  "description": "national park service mindsumo challenge",
+  "main": "app.js",
+  "dependencies": {
+    "ejs": "^2.6.1",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arianazhu/Capital-One-NPS.git"
+  },
+  "keywords": [
+    "capital",
+    "one",
+    "national",
+    "park",
+    "service",
+    "mindsumo"
+  ],
+  "author": "ariana zhu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/arianazhu/Capital-One-NPS/issues"
+  },
+  "homepage": "https://github.com/arianazhu/Capital-One-NPS#readme"
+}
