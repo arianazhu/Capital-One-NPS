@@ -18,19 +18,6 @@
         <div class="col py-3 my-3">
           <h2 class="display-4">Find a park by state</h2>
 
-          <!-- Dropdown search pretty-->
-          <!-- <div class="input-group">
-            <select class="custom-select" id="selectState" method="POST" action="/find-by-state"> // inputGroupSelect04
-              <option selected>Choose a state...</option>
-              <option value="<%= qs.state %>">az</option>
-              <option value="<%= qs.state %>">ca</option>
-              <option value="<%= qs.state %>">dc</option>
-            </select>
-            <div class="input-group-append">
-              <button class="btn btn-outline-secondary" type="submit">Search</button>
-            </div>
-					</div> -->
-
 					<!-- Dropdown search functional -->
 					<div class="input-group">
 						<form id="selectState" method="POST" action="/find-by-state">
@@ -40,35 +27,12 @@
 								  <option value="CA">
 								</datalist>
 							</input>
-							<!-- <input type="submit" value="Search" /> -->
 							<button class="btn btn-outline-secondary" type="submit">Search</button>
 						</form>
 					</div>
-
-
-					<!-- form version of dropdown -->
-					<!-- <form action="/find-by-state" method="POST">
-						<select class="custom-select" id="selectState"> // inputGroupSelect04
-							<option selected disabled>Choose a state...</option>
-							<option value="1">One</option>
-							<option value="2">Two</option>
-							<option value="3">Three</option>
-						</select>
-						<input type='submit' value='Search' />
-					</form> -->
-
         </div>
       </div>
-
-			<!-- // Showing results
-			<div class="row">
-        <div class="col my-4">
-					<h2 class="lead"><strong>Showing results for: <XX%XX= stateName %XX></strong></h2>
-        </div>
-      </div> -->
-
 		</div>
-
 
 		<!-- JQuery, Tether, Bootstrap JS -->
 		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
