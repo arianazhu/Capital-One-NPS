@@ -4,7 +4,7 @@ var urlencodedParser = bodyParser.urlencoded({ extended: false});
 var mongoose = require('mongoose');
 
 // Connect to the database
-mongoose.connect('mongodb+srv://test:test@parkinfo-lpisn.mongodb.net/test?retryWrites=true', {useNewUrlParser: true });
+//mongoose.connect('mongodb+srv://test:test@parkinfo-lpisn.mongodb.net/test?retryWrites=true', {useNewUrlParser: true });
 
 
 // Create schema - this is like a blueprint
@@ -24,14 +24,13 @@ var parkSchema = new mongoose.Schema({
 });
 
 // Create model and base it on Schema
-var Park = mongoose.model('Park', parkSchema);
+//var Park = mongoose.model('Park', parkSchema);
 
 // // Creating an item to add to database
 // var item = Park({states: 'CA', latLong: '12:21'}).save(function(err){
 //   if (err) throw err;
 //   console.log('item saved');
 // });
-
 
 
 var parks = require('../assets/parks.json').data;

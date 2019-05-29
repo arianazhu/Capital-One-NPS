@@ -3,6 +3,18 @@
 	<head>
 		<title>NPS Kiosk: Find by State</title>
 
+    <style>
+      .card-img-top {
+        max-height: 160px;
+        min-height: 160px;
+        object-fit: cover;
+      }
+
+      .top-buffer {
+        margin-top:20px;
+      }
+    </style>
+
     <!-- Do this for ajax (state-results.js in assets) -->
     <!-- <script src="/../../assets/state-results.js"></script> -->
 
@@ -89,56 +101,36 @@
 		</div>
 
 		<div class="container text-muted">
+      <% var matches = []; %>
+      <% for (var i=0; i < parkInfo.length; i++) {
+          if (parkInfo[i].states == data.state) {
+            matches.push(parkInfo[i]);
+          }
+      } %>
+
+      <% var col = 0; %>
       <% var counter = 0; %>
-      <% for (var i=0; i < (parkInfo.length/4) + 1; i++) { %>
-        <div class="row">
-        <% do {
-            if (parkInfo[i].states == data.state) {
-            counter += 1;
-            }
-        } while (counter%4 != 0)%>
+      <% for (var i=0; i < (matches.length/4) + 1; i++) { %>
+        <div class="row top-buffer">
+        <% for (var j=0; j < 4; j++) {
+            counter++;
+            if (counter > matches.length) break;
+          %>
+          <div class="col-md-6 col-lg-3 d-flex align-items-stretch">
+            <div class="card">
+              <% var image = "" + matches[counter-1].images[0].url; %>
+              <% console.log(image); %>
+              <img src="<%=encodeURI(image)%>" class="card-img-top img-fluid" height="250" id="cardImage"/>
+
+              <div class="card-body">
+                <h3 class="card-title"><%= matches[counter-1].fullName %></h3>
+                <p> <%= matches[counter-1].addresses[0].city %>, <%= matches[counter-1].addresses[0].stateCode %></p>
+              </div>
+            </div>
+          </div>
+        <% } %>
         </div>
       <% } %>
-
-			<!-- cards -->
-			<div class="row">
-				<div class="col-md-6 col-lg-3">
-					<div class="card">
-						<img src="https://www.nps.gov/common/uploads/grid_builder/deva/crop16_9/9B65A85A-1DD8-B71B-0BDF4BF50595F57F.jpg?width=950&quality=90&mode=crop" class="card-img-top img-fluid"/>
-						<div class="card-body">
-							<h3 class="card-title">Death Valley</h3>
-							<p>However, as a project get bigger, it becomes overwhelming to keep all the code in one file. Python projects use packages to organize code into multiple modules that can be imported where needed, and the tutorial will do this as well.</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-6 col-lg-3">
-					<div class="card">
-						<img src="https://www.nps.gov/common/uploads/grid_builder/deva/crop16_9/9B65A85A-1DD8-B71B-0BDF4BF50595F57F.jpg?width=950&quality=90&mode=crop" class="card-img-top img-fluid"/>
-						<div class="card-body">
-							<h3 class="card-title">Death Valley</h3>
-							<p>However, as a project get bigger, it becomes overwhelming to keep all the code in one file. Python projects use packages to organize code into multiple modules that can be imported where needed, and the tutorial will do this as well.</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-6 col-lg-3">
-					<div class="card">
-						<img src="https://www.nps.gov/common/uploads/grid_builder/deva/crop16_9/9B65A85A-1DD8-B71B-0BDF4BF50595F57F.jpg?width=950&quality=90&mode=crop" class="card-img-top img-fluid"/>
-						<div class="card-body">
-							<h3 class="card-title">Death Valley</h3>
-							<p>However, as a project get bigger, it becomes overwhelming to keep all the code in one file. Python projects use packages to organize code into multiple modules that can be imported where needed, and the tutorial will do this as well.</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-6 col-lg-3">
-					<div class="card">
-						<img src="https://www.nps.gov/common/uploads/grid_builder/deva/crop16_9/9B65A85A-1DD8-B71B-0BDF4BF50595F57F.jpg?width=950&quality=90&mode=crop" class="card-img-top img-fluid"/>
-						<div class="card-body">
-							<h3 class="card-title">Death Valley</h3>
-							<p>However, as a project get bigger, it becomes overwhelming to keep all the code in one file. Python projects use packages to organize code into multiple modules that can be imported where needed, and the tutorial will do this as well.</p>
-						</div>
-					</div>
-				</div>
-			</div>
 
 		</div>
 
