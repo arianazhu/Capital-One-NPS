@@ -1,5 +1,6 @@
 {
-  "total":"496","data":[
+  "total":"496",
+  "data":[
     {
       "states":"MA",
       "latLong":"lat:42.2553961, long:-71.01160356",
@@ -286,4 +287,7 @@
     {"states":"CA","latLong":"lat:37.84883288, long:-119.5571873","description":"Not just a great valley, but a shrine to human foresight, the strength of granite, the power of glaciers, the persistence of life, and the tranquility of the High Sierra.\n\nFirst protected in 1864, Yosemite National Park is best known for its waterfalls, but within its nearly 1,200 square miles, you can find deep valleys, grand meadows, ancient giant sequoias, a vast wilderness area, and much more.","designation":"National Park","parkCode":"yose","id":"4324B2B4-D1A3-497F-8E6B-27171FAE4DB2","directionsInfo":"You can drive to Yosemite all year and enter via Highways 41, 140, and 120 from the west. Tioga Pass Entrance (via Highway 120 from the east) is closed from around November through late May or June. Hetch Hetchy is open all year but may close intermittently due to snow.\n\nPlease note that GPS units do not always provide accurate directions to or within Yosemite.","directionsUrl":"http:\/\/www.nps.gov\/yose\/planyourvisit\/driving.htm","fullName":"Yosemite National Park","url":"https:\/\/www.nps.gov\/yose\/index.htm","weatherInfo":"Yosemite National Park covers nearly 1,200 square miles (3,100 square km) in the Sierra Nevada, with elevations ranging from about 2,000 feet (600 m) to 13,000 ft (4,000 m). Yosemite receives 95% of its precipitation between October and May (and over 75% between November and March). Most of Yosemite is blanketed in snow from about November through May. (Yosemite Valley can be rainy or snowy in any given winter storm.)","name":"Yosemite"},
 
     {"states":"AK","latLong":"lat:65.0935608, long:-142.7960021","description":"Located in Interior Alaska, Yukon-Charley Rivers offers exploration in a largely untouched landscape. Whether you float the mighty Yukon River or paddle the Charley River's whitewater, your memories will last a lifetime. Geology, cultural history, gold rush remnants, wildlife, and vast scenery will be a part of your experience. But, the strongest element will be solitude. Your adventure awaits.","designation":"National Preserve","parkCode":"yuch","id":"6F550E4D-AE26-4250-A674-397E2DF88092","directionsInfo":"Although there is no direct highway connection to Yukon-Charley Rivers National Preserve, visitors are able to access the preserve by either air travel from Fairbanks, or water or air travel from two small towns on the road system(Eagle and Circle), near the preserve boundaries.","directionsUrl":"http:\/\/www.nps.gov\/yuch\/planyourvisit\/directions.htm","fullName":"Yukon - Charley Rivers National Preserve","url":"https:\/\/www.nps.gov\/yuch\/index.htm","weatherInfo":"The area that Yukon-Charley Rivers encompasses is generally classified as sub-arctic, with exceptionally cold winters, relatively warm summers, low annual precipitation, and generally high winds.","name":"Yukon - Charley Rivers"}
-  ],"limit":"130","start":"1"}
+  ],
+  "limit":"130",
+  "start":"1"
+}

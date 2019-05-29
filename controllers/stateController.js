@@ -32,16 +32,21 @@ var Park = mongoose.model('Park', parkSchema);
 //   console.log('item saved');
 // });
 
+
+
+var parks = require('../assets/parks.json').data;
+
 module.exports = function(app){ // app is from app.js (var app = express();)
   app.get('/find-by-state', function(req, res){
-    // Get data from MongoDB and pass it to the view
-    Park.find({}, function(err, data){ // empty bracket means all items, can also specify one item like {states: "CA"}
-      if (err) throw err;
-      res.render('state', {parks: data});
-    });
+    res.render('state');
+    // // Get data from MongoDB and pass it to the view
+    // Park.find({}, function(err, data){ // empty bracket means all items, can also specify one item like {states: "CA"}
+    //   if (err) throw err;
+    //   res.render('state', {parks: data});
+    // });
   });
 
   app.post('/find-by-state', urlencodedParser, function(req, res) {
-    res.render('state-success', {data: req.body});
+    res.render('state-success', {data: req.body, parkInfo: parks});
   });
 };
