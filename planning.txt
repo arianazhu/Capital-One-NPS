@@ -13,6 +13,11 @@ Image Links:
 Icon: 
 https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/US-NationalParkService-ShadedLogo.svg/2000px-US-NationalParkService-ShadedLogo.svg.png
 
+API:
+- Parks: limit=130, fields=images,addresses,contacts
+- Campgrounds: limit=200
+- Visitor Centers: limit=200
+
 Bonus Features
 - NPS Symbol Library (?) 
 - Google Maps API

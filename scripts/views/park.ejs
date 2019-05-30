@@ -14,6 +14,18 @@
 		<title><%= thisPark.fullName %></title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 
+		<style>
+			button.custom-card,
+			button.custom-card:hover {
+				color: inherit;
+			}
+
+			a.custom-card,
+			a.custom-card:hover {
+				color: inherit;
+			}
+		</style>
+
 		<!-- Bootstrap CSS -->
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
@@ -23,8 +35,12 @@
     <% include partials/nav.ejs %>
 
 		<div class="container text-muted">
-
-			<h2 class="display-4 text-center py-5 my-4"><%= thisPark.fullName %></h2>
+			<div class="text-center py-4 my-4">
+				<h2 class="display-4 text-center"><strong><%= thisPark.fullName %></strong></h2>
+				<h3 class="lead text-center"><strong><%= thisPark.addresses[0].city %>, <%= thisPark.states %></strong></p>
+				<% var image = "" + thisPark.images[0].url; %>
+				<img src="<%=encodeURI(image)%>" height="500" width="1000" class="py-3"/>
+			</div>
 
 			<nav class="nav justify-content-center nav-pills flex-column flex-md-row">
 				<a class="nav-link active" href="#info" data-toggle="tab">Info</a>
@@ -61,41 +77,97 @@
 					<p>However, as a project get bigger, it becomes overwhelming to keep all the code in one file. Python projects use packages to organize code into multiple modules that can be imported where needed, and the tutorial will do this as well.</p>
 				</div>
 			</div>
-
 		</div>
 
-		<div class="container">
-			<!-- Different column formats -->
-			<!--<div class="row" style="background: lightblue">
-				<div class="col-sm-6">column</div>
-				<div class="col-sm-6">column</div>
-			</div>
+		<!-- Accordion collapse -->
+		<div class="container text-muted">
+			<div class="accordion" id="accordionExample">
+			  <div class="card">
+			    <div class="card-header" id="headingOne">
+			      <h2 class="mb-0">
+			        <button class="custom-card btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+			          <strong>Visitor Centers</strong>
+			        </button>
+			      </h2>
+			    </div>
 
-			<div class="row" style="background: pink">
-				<div class="col-md-6 col-lg-3">column</div>
-				<div class="col-md-6 col-lg-3">column</div>
-				<div class="col-md-6 col-lg-3">column</div>
-				<div class="col-md-6 col-lg-3">column</div>
-			</div>
+			    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+						<div class="card-body">
+							<%
+							var visitorCenters = [];
+							for (var i=0; i<visitorInfo.length; i++) {
+								if (thisPark.parkCode == visitorInfo[i].parkCode) {
+									visitorCenters.push(visitorInfo[i]);
+								}
+							}
 
-			<div class="row" style="background: yellow">
-				<div class="col-3">column</div>
-				<div class="col-3">column</div>
-				<div class="col-3">column</div>
-				<div class="col-3">column</div>
-			</div>
+							if (visitorCenters.length == 0) { %>
+								There is currently no information for visitor centers at this site.
+							<% }
+							else { %>
+								<ul>
+								<% for (var j=0; j<visitorCenters.length; j++) { %>
+								<% if (visitorCenters[j].url == "") { %>
+									<li>
+										<strong><%= visitorCenters[j].name%></a></strong>
+									</li>
+									<p><%= visitorCenters[j].description%></p>
+								<% }
+								else { %>
+									<li><a href="<%=encodeURI(visitorCenters[j].url)%>" class="custom-card">
+										<u><strong><%= visitorCenters[j].name%></a></strong></u>
+									</li>
+									<p><%= visitorInfo[j].description%></p>
+								<% }
+								} %>
+								</ul>
+							<% } %>
+			      </div>
+			    </div>
+			  </div>
+			  <div class="card">
+			    <div class="card-header" id="headingTwo">
+			      <h2 class="mb-0">
+			        <button class="btn btn-link collapsed custom-card" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+			          <strong>Campgrounds</strong>
+			        </button>
+			      </h2>
+			    </div>
+			    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+			      <div class="card-body">
+							<%
+							var camps = [];
+							for (var i=0; i<campInfo.length; i++) {
+								if (thisPark.parkCode == campInfo[i].parkCode) {
+									camps.push(campInfo[i]);
+								}
+							}
 
-			<div class="row" style="background: lightblue">
-				<div class="col-sm">column</div>
-				<div class="col-sm-6">column</div>
-				<div class="col-sm">column</div>
+							if (camps.length == 0) { %>
+								There is currently no information for campgrounds at this site.
+							<% }
+							else { %>
+								<ul>
+								<% for (var j=0; j<camps.length; j++) { %>
+								<% if (camps[j].regulationsurl == "") { %>
+									<li>
+										<strong><%= camps[j].name%></a></strong>
+									</li>
+									<p><%= camps[j].description%></p>
+								<% }
+								else { %>
+									<li><a href="<%=encodeURI(camps[j].regulationsurl)%>" class="custom-card">
+										<u><strong><%= camps[j].name%></a></strong></u>
+									</li>
+									<p><%= camps[j].description%></p>
+								<% }
+								} %>
+								</ul>
+							<% } %>
+			      </div>
+			    </div>
+			  </div>
 			</div>
-
-			<div class="row justify-content-sm-center">
-				<div class="col-sm-2 order-last" style="background: pink">1 column</div>
-				<div class="col-sm-2 order-first" style="background: pink">2 column</div>
-				<div class="col-sm-2" style="background: pink">3 column</div>
-			</div>-->
 		</div>
 
 		<div class="container py-5">
