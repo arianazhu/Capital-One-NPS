@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>NPS Kiosk: Search results</title>
+
+    <style>
+			input[type=text] {
+				width: 100px;
+			}
+
+      .card-img-top {
+        max-height: 160px;
+        min-height: 160px;
+        object-fit: cover;
+      }
+
+      .top-buffer {
+        margin-top: 20px;
+      }
+
+      a.custom-card,
+      a.custom-card:hover {
+        color: inherit;
+      }
+    </style>
+
+    <script src="searchController.js" type="text/javascript"></script>
+
+    <!-- Do this for ajax (state-results.js in assets) -->
+    <!-- <script src="/../../assets/state-results.js"></script> -->
+
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<!-- Bootstrap CSS -->
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	</head>
+
+	<body>
+    <div id="top" />
+
+		<% include partials/nav.ejs %>
+
+    <div class="container">
+      <div class="row">
+        <div class="col py-3 my-3">
+          <h2 class="display-4">Find a park by name or keyword: <%= data.keyword %></h2>
+						<div class="input-group">
+		          <form class="form-inline my-2 my-lg-0" method="POST" action="/search">
+		  		      <input name="keyword" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+			  					<span data-toggle="tooltip" title="Search" class="text-info" data-placement="bottom">
+			  						<button class="btn btn-outline-success my-2 my-sm-0" type="submit" style="background: #fff;">
+			  							<img src="https://images.vexels.com/media/users/3/132068/isolated/preview/f9bb81e576c1a361c61a8c08945b2c48-search-icon-by-vexels.png" width="17" height="17"/>
+			  						</button>
+			  					</span>
+		  		    </form>
+					</div>
+        </div>
+      </div>
+		</div>
+
+		<div class="container text-muted">
+      <% var matches = []; %>
+
+      <% for (var i=0; i < parkInfo.length; i++) {
+          var parkString = parkInfo[i];
+          var hasKeyword = false;
+          parkString = JSON.stringify(parkString).toUpperCase();
+          var key = data.keyword.toUpperCase();
+
+          if (parkString.includes(key)) {
+            matches.push(parkInfo[i]);
+          }
+      } %>
+
+
+      <% var col = 0; %>
+      <% var counter = 0; %>
+      <% for (var i=0; i < (matches.length/4) + 1; i++) { %>
+        <div class="row top-buffer">
+          <% if (matches.length == 0) { %>
+            <div class="col-md-6 col-lg-3 d-flex align-items-stretch">
+              <p class="lead">No results found.</p>
+            </div>
+          <% } %>
+          <% for (var j=0; j < 4; j++) {
+            counter++;
+            if (counter > matches.length) break;
+          %>
+          <div class="col-md-6 col-lg-3 d-flex align-items-stretch">
+						<a href="/parks/<%=encodeURI(matches[counter-1].parkCode)%>" class="custom-card d-flex align-items-stretch">
+            	<div class="card">
+                <% var image = "" + matches[counter-1].images[0].url; %>
+                <img src="<%=encodeURI(image)%>" class="card-img-top img-fluid" height="250" id="cardImage"/>
+
+                <div class="card-body">
+                  <h3 class="card-title"><%= matches[counter-1].fullName %></h3>
+                  <p> <%= matches[counter-1].addresses[0].city %>, <%= matches[counter-1].addresses[0].stateCode %></p>
+                </div>
+              </div>
+						</a>
+          </div>
+        <% } %>
+        </div>
+      <% } %>
+
+		</div>
+
+    <div class="container py-5">
+      <div class="row justify-content-center">
+        <a href="#top">
+          <button type="button" class="btn btn-outline-dark">Back to top</button>
+        </a>
+      </div>
+    </div>
+
+		<!-- JQuery, Tether, Bootstrap JS -->
+		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+		<script>
+			S(function () {
+				S('[data-toggle="tooltip"]').tooltip();
+			});
+		</script>
+	</body>
+</html>
