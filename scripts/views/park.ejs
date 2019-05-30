@@ -38,6 +38,7 @@
 			<div class="text-center py-4 my-4">
 				<h2 class="display-4 text-center"><strong><%= thisPark.fullName %></strong></h2>
 				<h3 class="lead text-center"><strong><%= thisPark.addresses[0].city %>, <%= thisPark.states %></strong></p>
+				<p class="lead text-center"><%= thisPark.description%></p>
 				<% var image = "" + thisPark.images[0].url; %>
 				<img src="<%=encodeURI(image)%>" height="500" width="1000" class="py-3"/>
 			</div>
@@ -53,12 +54,34 @@
 
 			<div class="tab-content py-5">
 				<div class="tab-pane active" id="info">
-					<h3>Info</h3>
-					<p>However, as a project get bigger, it becomes overwhelming to keep all the code in one file. Python projects use packages to organize code into multiple modules that can be imported where needed, and the tutorial will do this as well.</p>
+					<h3>Park Information</h3>
+					<p><strong>Phone:</strong> <%= thisPark.contacts.phoneNumbers[0].phoneNumber%></p>
+					<p><strong>Email:</strong> <%= thisPark.contacts.emailAddresses[0].emailAddress%></p>
+					<p><strong>Address:</strong> <%= thisPark.addresses[0].line1%>, <%= thisPark.addresses[0].city%>, <%= thisPark.addresses[0].stateCode%> <%= thisPark.addresses[0].postalCode%></p>
+					<p>Directions to this park can be found <a href="<%=thisPark.directionsUrl%>" class="custom-card"><strong><u>here</strong></u></a>.</p>
+					<p>Park website can be found <a href="<%=thisPark.url%>" class="custom-card"><strong><u>here</strong></u></a>.</p>
+
 				</div>
+
 				<div class="tab-pane" id="alerts">
 					<h3>Alerts</h3>
-					<p>However, as a project get bigger, it becomes overwhelming to keep all the code in one file. Python projects use packages to organize code into multiple modules that can be imported where needed, and the tutorial will do this as well.</p>
+					<% var alerts = [];
+					for (var i=0; i<alertInfo.length; i++) {
+						if (thisPark.parkCode == alertInfo[i].parkCode) {
+							alerts.push(alertInfo[i]);
+						}
+					}
+
+					if (alerts.length == 0) { %>
+						<p>There are currently no alerts for this park.</p>
+					<% }
+					else { %>
+					<ul>
+						<% for (var j=0; j<alerts.length; j++) { %>
+							<li><%= alerts[j].title%></li>
+						<% } %>
+					</ul>
+					<% } %>
 				</div>
 				<div class="tab-pane" id="articles">
 					<h3>Articles</h3>
@@ -102,7 +125,7 @@
 							}
 
 							if (visitorCenters.length == 0) { %>
-								There is currently no information for visitor centers at this site.
+								There is currently no information for visitor centers at this park.
 							<% }
 							else { %>
 								<ul>
@@ -144,7 +167,7 @@
 							}
 
 							if (camps.length == 0) { %>
-								There is currently no information for campgrounds at this site.
+								There is currently no information for campgrounds at this park.
 							<% }
 							else { %>
 								<ul>
@@ -170,6 +193,7 @@
 			</div>
 		</div>
 
+		<!-- Back to top -->
 		<div class="container py-5">
 			<div class="row justify-content-center">
 				<a href="#top">

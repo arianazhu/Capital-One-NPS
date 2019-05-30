@@ -17,6 +17,8 @@ API:
 - Parks: limit=130, fields=images,addresses,contacts
 - Campgrounds: limit=200
 - Visitor Centers: limit=200
+- Alerts: limit=1000
+- Articles: limit=10000
 
 Bonus Features
 - NPS Symbol Library (?) 
