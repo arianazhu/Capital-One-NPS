@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+	<head>
+    <%
+    var thisPark = parkInfo[0];
+    for (var i=0; i<parkInfo.length; i++) {
+      if (parkInfo[i].parkCode == code) {
+        thisPark = parkInfo[i];
+        break;
+      }
+    }
+    %>
+
+		<title><%= thisPark.fullName %></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<!-- Bootstrap CSS -->
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+	</head>
+
+	<body>
+    <% include partials/nav.ejs %>
+
+		<div class="container text-muted">
+
+			<h2 class="display-4 text-center py-5 my-4"><%= thisPark.fullName %></h2>
+
+			<nav class="nav justify-content-center nav-pills flex-column flex-md-row">
+				<a class="nav-link active" href="#info" data-toggle="tab">Info</a>
+				<a class="nav-link" href="#alerts" data-toggle="tab">Alerts</a>
+				<a class="nav-link" href="#articles" data-toggle="tab">Articles</a>
+				<a class="nav-link" href="#events" data-toggle="tab">Events</a>
+				<a class="nav-link" href="#news" data-toggle="tab">News</a>
+				<a class="nav-link" href="#lesson" data-toggle="tab">Lesson Plans</a>
+			</nav>
+
+			<div class="tab-content py-5">
+				<div class="tab-pane active" id="info">
+					<h3>Info</h3>
+					<p>However, as a project get bigger, it becomes overwhelming to keep all the code in one file. Python projects use packages to organize code into multiple modules that can be imported where needed, and the tutorial will do this as well.</p>
+				</div>
+				<div class="tab-pane" id="alerts">
+					<h3>Alerts</h3>
+					<p>However, as a project get bigger, it becomes overwhelming to keep all the code in one file. Python projects use packages to organize code into multiple modules that can be imported where needed, and the tutorial will do this as well.</p>
+				</div>
+				<div class="tab-pane" id="articles">
+					<h3>Articles</h3>
+					<p>However, as a project get bigger, it becomes overwhelming to keep all the code in one file. Python projects use packages to organize code into multiple modules that can be imported where needed, and the tutorial will do this as well.</p>
+				</div>
+				<div class="tab-pane" id="events">
+					<h3>Events</h3>
+					<p>However, as a project get bigger, it becomes overwhelming to keep all the code in one file. Python projects use packages to organize code into multiple modules that can be imported where needed, and the tutorial will do this as well.</p>
+				</div>
+				<div class="tab-pane" id="news">
+					<h3>News</h3>
+					<p>However, as a project get bigger, it becomes overwhelming to keep all the code in one file. Python projects use packages to organize code into multiple modules that can be imported where needed, and the tutorial will do this as well.</p>
+				</div>
+				<div class="tab-pane" id="lesson">
+					<h3>Lesson Plans</h3>
+					<p>However, as a project get bigger, it becomes overwhelming to keep all the code in one file. Python projects use packages to organize code into multiple modules that can be imported where needed, and the tutorial will do this as well.</p>
+				</div>
+			</div>
+
+		</div>
+
+		<div class="container">
+			<!-- Different column formats -->
+			<!--<div class="row" style="background: lightblue">
+				<div class="col-sm-6">column</div>
+				<div class="col-sm-6">column</div>
+			</div>
+
+			<div class="row" style="background: pink">
+				<div class="col-md-6 col-lg-3">column</div>
+				<div class="col-md-6 col-lg-3">column</div>
+				<div class="col-md-6 col-lg-3">column</div>
+				<div class="col-md-6 col-lg-3">column</div>
+			</div>
+
+			<div class="row" style="background: yellow">
+				<div class="col-3">column</div>
+				<div class="col-3">column</div>
+				<div class="col-3">column</div>
+				<div class="col-3">column</div>
+			</div>
+
+			<div class="row" style="background: lightblue">
+				<div class="col-sm">column</div>
+				<div class="col-sm-6">column</div>
+				<div class="col-sm">column</div>
+			</div>
+
+			<div class="row justify-content-sm-center">
+				<div class="col-sm-2 order-last" style="background: pink">1 column</div>
+				<div class="col-sm-2 order-first" style="background: pink">2 column</div>
+				<div class="col-sm-2" style="background: pink">3 column</div>
+			</div>-->
+		</div>
+
+		<div class="container py-5">
+			<div class="row justify-content-center">
+				<a href="#top">
+					<button type="button" class="btn btn-outline-dark">Back to top</button>
+				</a>
+			</div>
+		</div>
+
+
+		<!-- JQuery, Tether, Bootstrap JS -->
+		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+
+		<!-- Javascript (put at end of body so page can load first)-->
+		<!--<script>
+			alert("Hello");
+		</script>-->
+
+		<!-- Linking to JS file -->
+		<!--<script src="../scripts/main.js"></script>-->
+
+		<!-- Inline JS -->
+		<!--<li><a onclick="alert('Hello!');" href="search.html">Alert</a></li>-->
+
+		<script>
+			S(function () {
+				S('[data-toggle="tooltip"]').tooltip();
+			});
+		</script>
+	</body>
+</html>

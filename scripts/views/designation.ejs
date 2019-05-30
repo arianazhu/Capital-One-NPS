@@ -4,6 +4,12 @@
 		<title>NPS Kiosk: Find by Designation</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 
+		<style>
+			input[type=text] {
+				width: 300px;
+			}
+		</style>
+
 		<!-- Bootstrap CSS -->
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 	</head>
@@ -11,76 +17,53 @@
 	<body>
     <div id="top" />
 
-		<!-- Nav bar -->
-    <% include partials/nav.ejs %>
+		<% include partials/nav.ejs %>
 
     <div class="container">
       <div class="row">
         <div class="col py-3 my-3">
           <h2 class="display-4">Find a park by designation:</h2>
-          <form class="form-inline my-2 my-lg-0">
-  		      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
 
-  					<span data-toggle="tooltip" title="Search" class="text-info" data-placement="bottom">
-  						<button class="btn btn-outline-success my-2 my-sm-0" type="submit" style="background: #fff;">
-  							<img src="https://images.vexels.com/media/users/3/132068/isolated/preview/f9bb81e576c1a361c61a8c08945b2c48-search-icon-by-vexels.png" width="17" height="17"/>
-  						</button>
-  					</span>
-  		    </form>
+					<!-- Dropdown search functional -->
+					<div class="input-group">
+						<form id="selectDesig" method="POST" action="/find-by-designation">
+							<input type="text" name="designation" list="desigNames">
+								<datalist id="desigNames">
+									<option value="Cultural Heritage Corridor" />
+									<option value="Heritage Area" />
+									<option value="National and State Parks" />
+									<option value="National Battlefield" />
+									<option value="National Geologic Trail" />
+									<option value="National Heritage Area" />
+									<option value="National Heritage Corridor" />
+									<option value="National Historic Site" />
+									<option value="National Historic Trail" />
+									<option value="National Historical Park" />
+									<option value="National Historical Park and Ecological Preserve" />
+									<option value="National Memorial" />
+									<option value="National Military Park" />
+									<option value="National Monument" />
+									<option value="National Park" />
+									<option value="National Park & Preserve" />
+									<option value="National Preserve" />
+									<option value="National Recreation Area" />
+									<option value="National Scenic River" />
+									<option value="National Scenic Riverway" />
+									<option value="National Scenic Riverways" />
+									<option value="National Seashore" />
+									<option value="Parkway" />
+									<option value="Part of Colonial National Historical Park" />
+									<option value="Scenic & Recreational River" />
+									<option value="Wild & Scenic River" />
+									<option value="Other" />
+								</datalist>
+							</input>
+							<button class="btn btn-outline-secondary" type="submit">Search</button>
+						</form>
+					</div>
         </div>
       </div>
 		</div>
-
-		<div class="container text-muted">
-			<!-- cards -->
-			<div class="row">
-				<div class="col-md-6 col-lg-3">
-					<div class="card">
-						<img src="https://www.nps.gov/common/uploads/grid_builder/deva/crop16_9/9B65A85A-1DD8-B71B-0BDF4BF50595F57F.jpg?width=950&quality=90&mode=crop" class="card-img-top img-fluid"/>
-						<div class="card-body">
-							<h3 class="card-title">Death Valley</h3>
-							<p>However, as a project get bigger, it becomes overwhelming to keep all the code in one file. Python projects use packages to organize code into multiple modules that can be imported where needed, and the tutorial will do this as well.</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-6 col-lg-3">
-					<div class="card">
-						<img src="https://www.nps.gov/common/uploads/grid_builder/deva/crop16_9/9B65A85A-1DD8-B71B-0BDF4BF50595F57F.jpg?width=950&quality=90&mode=crop" class="card-img-top img-fluid"/>
-						<div class="card-body">
-							<h3 class="card-title">Death Valley</h3>
-							<p>However, as a project get bigger, it becomes overwhelming to keep all the code in one file. Python projects use packages to organize code into multiple modules that can be imported where needed, and the tutorial will do this as well.</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-6 col-lg-3">
-					<div class="card">
-						<img src="https://www.nps.gov/common/uploads/grid_builder/deva/crop16_9/9B65A85A-1DD8-B71B-0BDF4BF50595F57F.jpg?width=950&quality=90&mode=crop" class="card-img-top img-fluid"/>
-						<div class="card-body">
-							<h3 class="card-title">Death Valley</h3>
-							<p>However, as a project get bigger, it becomes overwhelming to keep all the code in one file. Python projects use packages to organize code into multiple modules that can be imported where needed, and the tutorial will do this as well.</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-6 col-lg-3">
-					<div class="card">
-						<img src="https://www.nps.gov/common/uploads/grid_builder/deva/crop16_9/9B65A85A-1DD8-B71B-0BDF4BF50595F57F.jpg?width=950&quality=90&mode=crop" class="card-img-top img-fluid"/>
-						<div class="card-body">
-							<h3 class="card-title">Death Valley</h3>
-							<p>However, as a project get bigger, it becomes overwhelming to keep all the code in one file. Python projects use packages to organize code into multiple modules that can be imported where needed, and the tutorial will do this as well.</p>
-						</div>
-					</div>
-				</div>
-			</div>
-
-		</div>
-
-    <div class="container py-5">
-      <div class="row justify-content-center">
-        <a href="#top">
-          <button type="button" class="btn btn-outline-dark">Back to top</button>
-        </a>
-      </div>
-    </div>
 
 		<!-- JQuery, Tether, Bootstrap JS -->
 		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
