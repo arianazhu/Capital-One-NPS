@@ -18,7 +18,12 @@ API:
 - Campgrounds: limit=200
 - Visitor Centers: limit=200
 - Alerts: limit=1000
-- Articles: limit=10000
+- Articles: limit=1050
+- Events: limit=1000 (but only 10 events showed up?)
+- News Releases: limit=1000
+- Lesson Plans: limit=1000
+- People: limit=1000
+- Places: limit=1000
 
 Bonus Features
 - NPS Symbol Library (?) 
