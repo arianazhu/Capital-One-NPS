@@ -12,7 +12,7 @@ var people = require('../assets/people.json').data;
 var places = require('../assets/places.json').data;
 
 
-module.exports = function(app){ // app is from app.js (var app = express();)
+module.exports = function(app){
   app.get('/parks/:park', function(req, res){
     res.render('park', {
       parkInfo: parks,
