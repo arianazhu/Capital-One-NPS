@@ -24,6 +24,13 @@
 			a.custom-card:hover {
 				color: inherit;
 			}
+
+			hr {
+			  margin-top: 1rem;
+			  margin-bottom: 1rem;
+			  border: 0;
+			  border-top: 1px solid rgba(0, 0, 0, 0.1);
+			}
 		</style>
 
 		<!-- Bootstrap CSS -->
@@ -40,7 +47,7 @@
 				<h3 class="lead text-center"><strong><%= thisPark.addresses[0].city %>, <%= thisPark.states %></strong></p>
 				<p class="lead text-center"><%= thisPark.description%></p>
 				<% var image = "" + thisPark.images[0].url; %>
-				<img src="<%=encodeURI(image)%>" height="500" width="1000" class="py-3"/>
+				<img src="<%=encodeURI(image)%>" height="600" width="1000" class="py-3"/>
 			</div>
 
 			<nav class="nav justify-content-center nav-pills flex-column flex-md-row">
@@ -54,64 +61,61 @@
 
 			<div class="tab-content py-5">
 				<div class="tab-pane active" id="info">
-					<h3>Park Information</h3>
-					<p><strong>Phone:</strong> <%= thisPark.contacts.phoneNumbers[0].phoneNumber%></p>
-					<p><strong>Email:</strong> <%= thisPark.contacts.emailAddresses[0].emailAddress%></p>
-					<p><strong>Address:</strong> <%= thisPark.addresses[0].line1%>, <%= thisPark.addresses[0].city%>, <%= thisPark.addresses[0].stateCode%> <%= thisPark.addresses[0].postalCode%></p>
-					<p>Directions to this park can be found <a href="<%=thisPark.directionsUrl%>" class="custom-card"><strong><u>here</strong></u></a>.</p>
-					<p>Park website can be found <a href="<%=thisPark.url%>" class="custom-card"><strong><u>here</strong></u></a>.</p>
+					<h2 class="display-4 py-1">Park Information</h2>
+					<p class="lead"><strong>Phone:</strong> <%= thisPark.contacts.phoneNumbers[0].phoneNumber%></p>
+					<p class="lead"><strong>Email:</strong> <%= thisPark.contacts.emailAddresses[0].emailAddress%></p>
+					<p class="lead"><strong>Address:</strong> <%= thisPark.addresses[0].line1%>, <%= thisPark.addresses[0].city%>, <%= thisPark.addresses[0].stateCode%> <%= thisPark.addresses[0].postalCode%></p>
+					<p class="lead">Directions to this park can be found <a href="<%=thisPark.directionsUrl%>" class="custom-card"><strong><u>here</strong></u></a>.</p>
+					<p class="lead">Park website can be found <a href="<%=thisPark.url%>" class="custom-card"><strong><u>here</strong></u></a>.</p>
 
 				</div>
-
 				<div class="tab-pane" id="alerts">
-					<h3>Alerts</h3>
-
+					<h2 class="display-4 py-1">Alerts</h2>
 						<% var alerts = [];
 						for (var i=0; i<alertInfo.length; i++) {
 							if (thisPark.parkCode == alertInfo[i].parkCode) {
 								alerts.push(alertInfo[i]);
 							}
 						}
-
 						if (alerts.length == 0) { %>
-							<p>There are currently no alerts for this park.</p>
+							<p class="lead">There are currently no alerts for this park.</p>
 						<% }
 						else { %>
 							<% for (var j=0; j<alerts.length; j++) { %>
 								<div class="alert alert-light" role="alert">
 									<% if (alerts[j].category == "") {
 											if (alerts[j].url == "") { %>
-												<h5><strong><%= alerts[j].title%></strong></h5>
+												<h5 class="lead"><strong><%= alerts[j].title%></strong></h5>
 											<% }
 											else { %>
-												<h5><a href="<%= alerts[j].url%>" class="alert-link"><u><%= alerts[j].title%></u></a></h5>
+												<h5 class="lead"><a href="<%= alerts[j].url%>" class="alert-link"><u><%= alerts[j].title%></u></a></h5>
 											<% } %>
 									<% }
 
 									else if (alerts[j].category == "Park Closure") {
 										if (alerts[j].url == "") { %>
-											<h5 class="text-info"><strong><%= alerts[j].category%>: <%= alerts[j].title%></strong></h5>
+											<h5 class="text-danger lead"><strong><%= alerts[j].category%>: <%= alerts[j].title%></strong></h5>
 										<% }
 										else { %>
-											<h5><a href="<%= alerts[j].url%>" class="alert-link text-info"><u><%= alerts[j].category%>: <%= alerts[j].title%></u></a></h5>
+											<h5 class="lead"><a href="<%= alerts[j].url%>" class="alert-link text-danger"><u><%= alerts[j].category%>: <%= alerts[j].title%></u></a></h5>
 										<% } %>
 									<% }
 
 									else if (alerts[j].category == "Information") {
 										if (alerts[j].url == "") { %>
-											<h5 class="text-success"><strong><%= alerts[j].category%>: <%= alerts[j].title%></strong></h5>
+											<h5 class="text-info lead"><strong><%= alerts[j].category%>: <%= alerts[j].title%></strong></h5>
 										<% }
 										else { %>
-											<h5><a href="<%= alerts[j].url%>" class="alert-link text-success"><u><%= alerts[j].category%>: <%= alerts[j].title%></u></a></h5>
+											<h5 class="lead"><a href="<%= alerts[j].url%>" class="alert-link text-info"><u><%= alerts[j].category%>: <%= alerts[j].title%></u></a></h5>
 										<% } %>
 									<% }
 
 									else if (alerts[j].category == "Caution") {
 										if (alerts[j].url == "") { %>
-											<h5 class="text-warning"><strong><%= alerts[j].category%>: <%= alerts[j].title%></strong></h5>
+											<h5 class="lead text-warning"><strong><%= alerts[j].category%>: <%= alerts[j].title%></strong></h5>
 										<% }
 										else { %>
-											<h5><a href="<%= alerts[j].url%>" class="alert-link text-warning"><u><%= alerts[j].category%>: <%= alerts[j].title%></u></a></h5>
+											<h5 class="lead"><a href="<%= alerts[j].url%>" class="alert-link text-warning"><u><%= alerts[j].category%>: <%= alerts[j].title%></u></a></h5>
 										<% } %>
 									<% }
 
@@ -132,13 +136,14 @@
 											<h5><a href="<%= alerts[j].url%>" class="alert-link"><u><%= alerts[j].category%>: <%= alerts[j].title%></u></a></h5>
 										<% } %>
 									<% } %>
-									<p><%= alerts[j].description%></p>
+									<p class="lead"><%= alerts[j].description%></p>
 								</div>
+								<hr/>
 							<% } %>
 						<% } %>
 				</div>
 				<div class="tab-pane" id="articles">
-					<h3>Articles</h3>
+					<h2 class="display-4 py-1">Articles</h2>
 					<% var articles = [];
 					for (var i=0; i<articleInfo.length; i++) {
 						if (JSON.stringify(articleInfo[i]).includes(thisPark.name)) {
@@ -147,19 +152,31 @@
 					}
 
 					if (articles.length == 0) { %>
-						<p>There are currently no articles for this park.</p>
+						<p class="lead">There are currently no articles for this park.</p>
 					<% }
 					else { %>
-					<ul>
+					<ul class="list-unstyled">
 						<% for (var j=0; j<articles.length; j++) { %>
-							<li><a href="<%=encodeURI(articles[j].url)%>" class="custom-card"><strong><u><%= articles[j].title%></strong></u></a></li>
-							<p><%= articles[j].listingdescription%></p>
+							<a href="<%=encodeURI(articles[j].url)%>" class="custom-card">
+								<li class="media">
+									<% if (articles[j].listingimage.url == "") { %>
+									<% }
+									else { %>
+										<img src="<%= encodeURI(articles[j].listingimage.url)%>" class="mr-3 align-self-center" height="90px" width="120px" alt="...">
+									<% } %>
+									<div class="media-body py-3">
+							      <h5 class="mt-0 mb-1"><strong><u><%= articles[j].title%></strong></u></h5>
+										<%= articles[j].listingdescription%>
+							    </div>
+								</li>
+							</a>
+							<hr/>
 						<% } %>
 					</ul>
 					<% } %>
 				</div>
 				<div class="tab-pane" id="events">
-					<h3>Events</h3>
+					<h2 class="display-4 py-1">Events</h2>
 					<% var events = [];
 					for (var i=0; i<eventInfo.length; i++) {
 						if (JSON.stringify(eventInfo[i]).includes(thisPark.name)) {
@@ -168,7 +185,7 @@
 					}
 
 					if (events.length == 0) { %>
-						<p>There are currently no events for this park.</p>
+						<p class="lead">There are currently no events for this park.</p>
 					<% }
 					else { %>
 					<ul>
@@ -180,7 +197,7 @@
 					<% } %>
 				</div>
 				<div class="tab-pane" id="news">
-					<h3>News</h3>
+					<h2 class="display-4 py-1">News</h2>
 					<% var news = [];
 					for (var i=0; i<newsInfo.length; i++) {
 						if (thisPark.parkCode == newsInfo[i].parkCode) {
@@ -189,39 +206,81 @@
 					}
 
 					if (news.length == 0) { %>
-						<p>There are currently no news releases for this park.</p>
+						<p class="lead">There are currently no news releases for this park.</p>
 					<% }
 					else { %>
-					<ul>
+					<ul class="list-unstyled">
 						<% for (var j=0; j<news.length; j++) { %>
-							<li><a href="<%=encodeURI(news[j].url)%>" class="custom-card"><strong><u><%= news[j].title%></strong></u></a></li>
-							<p><%= news[j].abstract%></p>
+							<a href="<%=encodeURI(news[j].url)%>" class="custom-card">
+								<li class="media">
+									<% if (news[j].image.url == "") {
+									}
+									else { %>
+										<img src="<%= encodeURI(news[j].image.url) %>" class="mr-3 align-self-center" height="90px" width="120px" alt="...">
+									<% } %>
+									<div class="media-body py-3">
+							      <h5 class="mt-0 mb-1"><strong><u><%= news[j].title%></strong></u></h5>
+										<%= news[j].abstract%>
+									</div>
+								</li>
+							</a>
+							<hr/>
 						<% } %>
 					</ul>
 					<% } %>
 				</div>
 				<div class="tab-pane" id="lesson">
-					<h3>Lesson Plans</h3>
+					<h2 class="display-4 py-1">Lesson Plans</h2>
 					<% var lessons = [];
 					for (var i=0; i<lessonInfo.length; i++) {
 						if (thisPark.parkCode == lessonInfo[i].parks) {
 							lessons.push(lessonInfo[i]);
 						}
 					}
-
 					if (lessons.length == 0) { %>
-						<p>There are currently no lesson plans for this park.</p>
+						<p class="lead">There are currently no lesson plans for this park.</p>
+						<hr/>
 					<% }
 					else { %>
-					<ul>
+					<ul class="py-2">
 						<% for (var j=0; j<lessons.length; j++) { %>
-							<li><a href="<%=encodeURI(lessons[j].url)%>" class="custom-card"><strong><u><%= lessons[j].title%></strong></u></a></li>
-							<p><%= lessons[j].questionobjective%></p>
+							<li>
+								<a href="<%=encodeURI(lessons[j].url)%>" class="custom-card">
+									<h5><strong><u><%= lessons[j].title%></strong></u></h5>
+								</a>
+							</li>
+							<% if (lessons[j].subject.toUpperCase() == "SOCIAL STUDIES") { %>
+									<p class="lead text-info"><i><%= lessons[j].subject %></i></p>
+							<% }
+							else if (lessons[j].subject.toUpperCase() == "SCIENCE") { %>
+								<p class="lead text-success"><i><%= lessons[j].subject %></i></p>
+							<% }
+							else if (lessons[j].subject.toUpperCase() == "MATH") { %>
+								<p class="lead text-danger"><i><%= lessons[j].subject %></i></p>
+							<% }
+							else if (lessons[j].subject.toUpperCase() == "LITERACY AND LANGUAGE ARTS") { %>
+								<p class="lead text-warning"><i><%= lessons[j].subject %></i></p>
+							<% }
+							else { %>
+								<p class="lead text-primary"><i><%= lessons[j].subject %></i></p>
+							<% } %>
+
+							<% if (lessons[j].gradelevel !== "") { %>
+								<p class="lead"><strong><%= lessons[j].gradelevel%></strong></p>
+							<% } %>
+
+							<% if (lessons[j].duration !== "") { %>
+								<p class="lead"><strong>Duration: <%= lessons[j].duration%></strong></p>
+							<% } %>
+
+							<p class="lead"><%= lessons[j].questionobjective%></p>
+							<hr/>
 						<% } %>
 					</ul>
 					<% } %>
 
-					<h3>People</h3>
+
+					<h3 class="py-3 display-4">People</h3>
 					<% var people = [];
 					for (var i=0; i<peopleInfo.length; i++) {
 						if (JSON.stringify(peopleInfo[i]).includes(thisPark.name)) {
@@ -233,18 +292,30 @@
 					}
 
 					if (people.length == 0) { %>
-						<p>There is currently no information about related people for this park.</p>
+						<p class="lead">There is currently no information about related people for this park.</p>
+						<hr/>
 					<% }
 					else { %>
-					<ul>
+					<ul class="list-unstyled">
 						<% for (var j=0; j<people.length; j++) { %>
-							<li><a href="<%=encodeURI(people[j].url)%>" class="custom-card"><strong><u><%= people[j].title%></strong></u></a></li>
-							<p><%= people[j].listingdescription%></p>
+							<a href="<%=encodeURI(people[j].url)%>" class="custom-card">
+								<li class="media">
+									<% if (people[j].listingimage.url !== "") { %>
+										<img src="<%= encodeURI(people[j].listingimage.url) %>" class="mr-3 align-self-center" height="120px" width="120px">
+									<% } %>
+									<div class="media-body">
+										<p class="mt-0 mb-1"><strong><u><%= people[j].title%></strong></u></p>
+										<p class="mb-0"><%= people[j].listingdescription%></p>
+									</div>
+								</li>
+							</a>
+							<hr/>
 						<% } %>
 					</ul>
 					<% } %>
 
-					<h3>Places</h3>
+
+					<h3 class="py-3 display-4">Places</h3>
 					<% var places = [];
 					for (var i=0; i<placeInfo.length; i++) {
 						if (JSON.stringify(placeInfo[i]).includes(thisPark.name)) {
@@ -253,13 +324,23 @@
 					}
 
 					if (places.length == 0) { %>
-						<p>There is currently no information about related places for this park.</p>
+						<p class="lead">There is currently no information about related places for this park.</p>
 					<% }
 					else { %>
-					<ul>
+					<ul class="list-unstyled">
 						<% for (var j=0; j<places.length; j++) { %>
-							<li><a href="<%=encodeURI(places[j].url)%>" class="custom-card"><strong><u><%= places[j].title%></strong></u></a></li>
-							<p><%= places[j].listingdescription%></p>
+							<a href="<%=encodeURI(places[j].url)%>" class="custom-card">
+								<li class="media">
+									<% if (places[j].listingimage.url !== "") { %>
+										<img src="<%= encodeURI(places[j].listingimage.url) %>" class="mr-3 align-self-center" height="120px" width="120px">
+									<% } %>
+									<div class="media-body">
+										<p class="mt-0 mb-1"><strong><u><%= places[j].title%></strong></u></p>
+										<p class="mb-0"><%= places[j].listingdescription%></p>
+									</div>
+								</li>
+							</a>
+							<hr/>
 						<% } %>
 					</ul>
 					<% } %>
@@ -372,18 +453,6 @@
 		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-
-
-		<!-- Javascript (put at end of body so page can load first)-->
-		<!--<script>
-			alert("Hello");
-		</script>-->
-
-		<!-- Linking to JS file -->
-		<!--<script src="../scripts/main.js"></script>-->
-
-		<!-- Inline JS -->
-		<!--<li><a onclick="alert('Hello!');" href="search.html">Alert</a></li>-->
 
 		<script>
 			S(function () {
